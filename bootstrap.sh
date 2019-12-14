@@ -40,7 +40,7 @@ echo >>ChangeLog '# permitted in any medium without royalty provided the copyrig
 echo >>ChangeLog '# this notice are preserved. This file is offered as-is, without any warranty.'
 echo >>ChangeLog ''
 build-aux/gitlog-to-changelog >>ChangeLog -- m4/
-bash gen-authors.sh >AUTHORS
+sh gen-authors.sh >AUTHORS
 install -c -m 444 README.md README
 
 autoreconf --install -Wall
