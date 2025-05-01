@@ -1,6 +1,6 @@
 # Build and install the GNU Autoconf Archive documentation.
 #
-# Copyright (c) 2019 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
+# Copyright (c) 2024 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -24,3 +24,4 @@ maintainer-clean-local:
 	@rm -f ax_*.texi all-macros.texi fdl-1.3.texi Makefile.in
 	@rm -f *.aux *.cp *.fn *.ky *.log *.pg *.toc *.tp *.vr
 	@rm -rf manual gendocs_template gendocs_template_min
+	@rm -f *~

@@ -3,8 +3,8 @@
 # settings required by the maintainer-makefile module
 
 gnu_rel_host		:= ftp.gnu.org
-old_NEWS_hash		:= 56570e4e5ecc76cd6aec96a672838de3
-gpg_key_ID		:= 99089D72
+old_NEWS_hash		:= cf265fa767e0fb81fc7965d0ae68078f
+gpg_key_ID		:= 1A4F63A13A4649B632F65EE141BC28FE99089D72
 today			:= $(date "+%Y-%m-%d")
 TAR_OPTIONS		+= --mtime=$(today)
 manual_title		:= GNU Autoconf Archive Web Site
@@ -12,7 +12,7 @@ news-check-lines-spec	:= 11
 
 # maintainer targets
 
-PYTHON		:= python
+PYTHON		:= python3
 
 M4DIR		:= $(srcdir)/m4
 STAGEDIR	:= $(srcdir)/stage

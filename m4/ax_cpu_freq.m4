@@ -19,19 +19,21 @@
 #   and this notice are preserved. This file is offered as-is, without any
 #   warranty.
 
-#serial 8
+#serial 12
 
 AC_DEFUN([AX_CPU_FREQ],
 [AC_REQUIRE([AC_PROG_CC])
  AC_LANG_PUSH([C++])
- AC_CACHE_CHECK(your cpu frequency, ax_cpu_freq,
+ AC_CACHE_CHECK([your cpu frequency], [ax_cv_cpu_freq],
  [AC_RUN_IFELSE([AC_LANG_PROGRAM([
+#include <cstring>
 #include <iostream>
-#include <sys/time.h>
 #include <fstream>
+#include <unistd.h>
+#include <sys/time.h>
 using namespace std;
 
-static __inline__ unsigned long long int rdtsc()
+static __inline__ unsigned long long int rdtsc(void)
 {
   unsigned long long int x;
   __asm__ volatile (".byte 0x0f, 0x31":"=A" (x));
@@ -85,10 +87,13 @@ static float average_MHz(int tries = 2)
 
     of.close()
 ])],
-     [ax_cpu_freq=`cat conftest_cpufreq`; rm -f conftest_cpufreq],
-     [ax_cpu_freq=unknow; rm -f conftest_cpufreq]
+     [ax_cv_cpu_freq=`cat conftest_cpufreq`],
+     [ax_cv_cpu_freq=unknown],
+     [ax_cv_cpu_freq=unknown]
  )])
 AC_LANG_POP([C++])
 
-  AC_DEFINE_UNQUOTED([CPU_FREQ], ${ax_cpu_freq}, [The cpu frequency (in MHz)])
+AS_VAR_IF([ax_cv_cpu_freq], [unknown],,
+  [AC_DEFINE_UNQUOTED([CPU_FREQ], [${ax_cv_cpu_freq}],
+    [The cpu frequency (in MHz)])])
 ])

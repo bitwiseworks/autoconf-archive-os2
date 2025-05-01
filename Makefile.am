@@ -1,6 +1,6 @@
 # Build and install the GNU Autoconf Archive.
 #
-# Copyright (c) 2019 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
+# Copyright (c) 2024 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>
 #
 # This program is free software: you can redistribute it and/or modify it under
 # the terms of the GNU General Public License as published by the Free Software
@@ -30,11 +30,12 @@ maintainer-clean-local:
 	@rm -f configure Makefile.in aclocal.m4 AUTHORS ChangeLog
 	@rm -f INSTALL config.log config.status configure maint.mk
 	@rm -f autoconf-archive-*.*.*.tar.* GNUmakefile README
+	@rm -f *~
 
 dist-hook:
 	echo $(VERSION) > $(distdir)/.tarball-version
 	if test -d .git; then												\
-	  echo > $(distdir)/cl-t '# Copyright (c) 2019 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'; \
+	  echo > $(distdir)/cl-t '# Copyright (c) 2024 Autoconf Archive Maintainers <autoconf-archive-maintainers@gnu.org>'; \
 	  echo >>$(distdir)/cl-t '#';											\
 	  echo >>$(distdir)/cl-t '# Copying and distribution of this file, with or without modification, are';		\
 	  echo >>$(distdir)/cl-t '# permitted in any medium without royalty provided the copyright notice and';		\
